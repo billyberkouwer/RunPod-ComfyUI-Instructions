@@ -20,6 +20,8 @@ You can run the image locally after building the image. To do so use the followi
 In terminal ->
 docker run <your_dockerhub_username>/runpod-worker-comfy:<chosen_tag_name>
 
+E.g. docker run -t billymylesberkouwer/runpod-worker-comfy:test
+
 N.B. unless you are running this inside a linux virtual machine that has drivers for your GPU successfully installed, you cannot perfectly replicate the RunPod image running process. Despite following directions from NVIDIA and Docker, I've been unable to get it to register my GPU drivers properly for inside my Linux VM.
 
 **_DOCKER FILE EXPLANATION_**
@@ -34,8 +36,7 @@ uses the latest version as a base. This one contains no built in .safetensor fil
 - FROM timpietruskyblibla/runpod-worker-comfy:3.0.0-sd3 as base #uses the latest version as a base. 
 This one contains stable diffusion 3
 
-_The 'WORKDIR' command_ sets the path that you are working in. This is important as you will need to make sure you are installing the files in the correct directory
-It uses the following pattern:
+_The 'WORKDIR' command_ sets the path that you are working in. This is important as you will need to make sure you are installing the files in the correct directory. It uses the following pattern:
 WORKDIR <some-path>
 
 E.g.:
