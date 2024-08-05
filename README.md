@@ -9,7 +9,7 @@ In terminal ->
 
 ``cd /your-docker-file-folder``
 
-E.g. ``/tomas/documents/code/temp``
+E.g. ``/tomas/documents/code/RunPod-ComfyUI-Instructions``
 
 ``docker build -t <your_dockerhub_username>/runpod-worker-comfy:<chosen_tag_name> --target base --platform linux/amd64 <custom-docker-file-location>`` (in this case "." because you have cd'd into the repo)
 
