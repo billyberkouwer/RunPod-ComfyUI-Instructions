@@ -1,15 +1,11 @@
 FROM timpietruskyblibla/runpod-worker-comfy:2.2.0 as base
-
-# WORKDIR /comfyui/custom_nodes
-
-# RUN git clone https://github.com/ltdrdata/ComfyUI-Manager /comfyui/custom_nodes/ComfyUI-Manager
-# RUN pip3 install -r requirements.txt
-
-# WORKDIR /comfyui
-
-# RUN python_embeded/python.exe -s -m pip install -r requirements.txt
+# FROM timpietruskyblibla/runpod-worker-comfy:3.0.0-base as base
+# FROM timpietruskyblibla/runpod-worker-comfy:3.0.0-sd3 as base
 
 WORKDIR /comfyui/custom_nodes
+
+# RUN git clone https://github.com/ltdrdata/ComfyUI-Manager/comfyui/custom_nodes/ComfyUI-Manager
+# RUN pip3 install -r requirements.txt
 
 RUN git clone https://github.com/FizzleDorf/ComfyUI_FizzNodes.git ./ComfyUI_FizzNodes
 RUN pip install -r ./ComfyUI_FizzNodes/requirements.txt
