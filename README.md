@@ -13,6 +13,7 @@ E.g. /tomas/documents/code/temp
 docker build -t <your_dockerhub_username>/runpod-worker-comfy:<chosen_tag_name> --target base --platform linux/amd64 <custom-docker-file-location (in this case "." because you have cd'd into the repo)>
 
 E.g. docker build -t billymylesberkouwer/runpod-worker-comfy:test --target base --platform linux/amd64 .
+__________________________________________________________________________________
 
 _Docker run command:_
 You can run the image locally after building the image. To do so use the following command:
@@ -36,11 +37,14 @@ uses the latest version as a base. This one contains no built in .safetensor fil
 - FROM timpietruskyblibla/runpod-worker-comfy:3.0.0-sd3 as base #uses the latest version as a base. 
 This one contains stable diffusion 3
 
+_______________________________________________________________________________
+
 _The 'WORKDIR' command_ sets the path that you are working in. This is important as you will need to make sure you are installing the files in the correct directory. It uses the following pattern:
 WORKDIR <some-path>
 
 E.g.:
 - WORKDIR /comfyui/custom_nodes
+_______________________________________________________________________________
 
 _The 'RUN' command_ allows you to run different commands and installs. Timpietruskyblibla's runpod-worker-comfy installs python and git amongst other things so you are able to use git clone, pip, and wget to install the required packages.
 It uses the following pattern:
@@ -61,6 +65,7 @@ RUN wget -O ./checkpoints/sd_turbo.safetensors https://huggingface.co/stabilitya
 This will install sd_turbo.safetensors inside /comfyui/models/checkpoints/sd_turbo.safetensors
 
 _**Requirements**_
+
 Some of these custom nodes contain a requirements.txt file in their repositories. This lists additional installations required for the plugin to work. To install these requirements, follow this pattern:
 
 RUN pip install -r <location-of-requirements.txt-file-relative-to-working-diretory>/requirements.txt
