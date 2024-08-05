@@ -45,23 +45,27 @@ _The 'WORKDIR' command_ sets the path that you are working in. This is important
 ``WORKDIR <some-path>``
 
 E.g.:
-- ``WORKDIR /comfyui/custom_nodes``
+
+``WORKDIR /comfyui/custom_nodes``
 _______________________________________________________________________________
 
 _The 'RUN' command_ allows you to run different commands and installs. Timpietruskyblibla's runpod-worker-comfy installs python and git amongst other things so you are able to use git clone, pip, and wget to install the required packages.
 It uses the following pattern:
 
 ``RUN git clone https://github.com/<some-repository> <install-location-relative-to-WORKDIR>``
+
 ``RUN wget -O <install-location-relative-to-WORKDIR> <some-download-link>``
 
 E.g.:
 
 ``WORKDIR /comfyui/custom_nodes``
+
 ``RUN git clone https://github.com/FizzleDorf/ComfyUI_FizzNodes.git ./ComfyUI_FizzNodes``
 
 This will install fizz nodes in /comfyui/custom_nodes/ComfyUI_FizzNodes
 
 ``WORKDIR /comfyui/models``
+
 ``RUN wget -O ./checkpoints/sd_turbo.safetensors https://huggingface.co/stabilityai/sd-turbo/resolve/main/sd_turbo.safetensors?download=true``
 
 This will install sd_turbo.safetensors inside /comfyui/models/checkpoints/sd_turbo.safetensors
@@ -73,7 +77,9 @@ Some of these custom nodes contain a requirements.txt file in their repositories
 ``RUN pip install -r <location-of-requirements.txt-file-relative-to-working-diretory>/requirements.txt``
 
 E.g. after installing FizzNodes:
+
 ``WORKDIR /comfyui/custom_nodes``
+
 ``RUN pip install -r ./ComfyUI_FizzNodes/requirements.txt``
 
 **NOTES**
